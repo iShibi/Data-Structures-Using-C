@@ -67,3 +67,18 @@ void printPostOrder(struct Node* node) {
     printPostOrder(node->right);
     printf("%d ", node->data);
 }
+
+// search node function
+// check returned node is not NULL before using it
+// usage: search(1, root);
+struct Node* search(int data, struct Node* node) {
+    if (node == NULL) {
+        return NULL;
+    } else if (data == node->data) {
+        return node;
+    } else if (data < node->data) {
+        return search(data, node->left);
+    } else if (data > node->data) {
+        return search(data, node->right);
+    }
+}
